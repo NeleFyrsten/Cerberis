@@ -1,0 +1,56 @@
+:root {
+
+    /* Text colors */
+    --text__primary: #000000;
+    --text__secondary: #9A9A9A;
+    --text__onDark: #ffffff;
+    --text__accent: #FFB051;
+    --text__alarm: #EF5D60;
+
+    /* Container colors */
+    --container__primary: #ffffff;
+    --container__secondary: #fcfcfc;
+    --container__mode--asleep: #606a92;
+    --container__mode--athome: #ffc176;
+    --container__mode--away: #c0c0c0;
+    --container__select--selected: #fff0de;
+    --container__select--notSelected: #ffffff;
+    --container__button--primary: #fff0de;
+    --container__button--secondary: #ffffff;
+    --container__menu: #606a92;
+    --container__checkbox--checked: #606a92;
+
+    /* Border colors */
+    --border__primaryContainer--selected: #d2d2d2;
+    --border__secondaryContainer: #c0c0c0;
+    --border__checkbox: #c0c0c0;
+    --border__select--selected: #ffc176;
+    --border__select--notSelected: #9A9A9A;
+    --border__button--primary: #ffc176;
+    --border__button--secondary: #c0c0c0;
+    --border__button__wheel: #9a9a9a;
+    --border__divider: #d2d2d2;
+
+}
+body {
+    font-family: "open-sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+h2{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+h3{
+    font-size: 16px;
+}
+
+h4{
+    font-size: 16px;
+}
+
+p{
+    font-size: 14px;
+}
