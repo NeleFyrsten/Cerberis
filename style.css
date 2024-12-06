@@ -30,7 +30,38 @@
     --border__button--secondary: #c0c0c0;
     --border__button__wheel: #9a9a9a;
     --border__divider: #d2d2d2;
+    --border__button--guide: #9A9A9A;
+    
+    /* spacing */
+    --spacing--2:2px;
+    --spacing--4:4px;
+    --spacing--6:6px;
+    --spacing--8:8px;
+    --spacing--12:12px;
+    --spacing--16:16px;
+    --spacing--20:20px;
+    --spacing--24:24px;
+    --spacing--32:32px;
+    --spacing--40:40px;
+    --spacing--48:48px;
+    --spacing--64:64px;
+    --spacing--80:80px;
+    --spacing--96:96px;
+    --spacing--128:128px;
+    --spacing--160:160px;
+    --spacing--192:192px;
+    --spacing--224:224px;
 
+    /* border radius */
+    --radius--s:4px;
+    --radius--m:8px;
+    --radius--l:12px;
+    --radius--xl:24px;
+    --radius--xxl:30px;
+
+    /* drop shadow */
+    --primary--dropshadow:0px 0px 9px 0px rgba(122, 121, 121, 0.25);
+    /* Typography */
 }
 body {
     font-family: "open-sans", sans-serif;
@@ -53,4 +84,90 @@ h4{
 
 p{
     font-size: 14px;
+}
+
+/* Buttons */
+.button{
+    width: fit-content;
+    color: var(--text__primary);
+    border: solid 0.5px;
+    border-radius: var(--radius--m);
+    padding: var(--spacing--12) var(--spacing--24);
+}
+.button__primary{
+    background-color: var(--container__button--primary);
+    border-color:var(--border__button--primary) ;
+}
+.button__secondary{
+    background-color: var(--container__button--secondary);
+    border-color: var(--border__button--secondary);
+}
+/* aside edit */
+
+
+.editSchedule{
+   height: 90%;
+   padding: var(--spacing--20);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+    
+.editSchedule__dragDown{
+    display: block; 
+    width: 40px; 
+    height: 2.5px; 
+    background-color: var(--border__divider, #ccc);
+    border-radius: 2px;
+}
+.button__guide{
+    border-radius: var(--radius--xl);
+    border: solid 1px ;
+    border-color: var(--border__button--guide);
+    width: 27px;
+    height: 27px;
+    color: var(--text__secondary);
+    background-color: var(--container__button--secondary);
+    margin-left: auto;
+}
+.actions__primaryChoice{
+margin: 0;
+padding: var(--spacing--16);
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+    
+.button__primary--big{
+        width: 100%;
+        padding: var(--spacing--32) var(--spacing--8);
+        margin-bottom: var(--spacing--20);
+     
+    .button__title{
+        display: flex;
+        justify-content: center;
+        margin-bottom: var(--spacing--16);
+        gap: var(--spacing--8);
+
+    }
+} 
+.actions__divider{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%; 
+
+
+    .divider__line{
+        display: block;
+        height: 1px;
+        width: 100%;
+        background-color: var(--border__divider, #ccc);
+        margin: var(--spacing--2);
+    
+    .divider__text{
+        margin: var(--spacing--8);
+        }
+    }
+    
 }
