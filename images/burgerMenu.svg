@@ -1,0 +1,8 @@
+<svg width="44" height="95" viewBox="0 0 44 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M29 20C15.4 13.1429 12 8.57143 12 0V18.8571L29 20Z" fill="#606A92"/>
+<circle cx="12" cy="47" r="32" fill="#606A92"/>
+<path d="M29 74C15.4 81.2 12 86 12 95V75.2L29 74Z" fill="#606A92"/>
+<line x1="13" y1="40.5" x2="34" y2="40.5" stroke="white"/>
+<line x1="13" y1="46.5" x2="34" y2="46.5" stroke="white"/>
+<line x1="13" y1="52.5" x2="34" y2="52.5" stroke="white"/>
+</svg>
