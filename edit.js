@@ -171,25 +171,25 @@ function changeToAway(activePosition) {
    ________________________________________*/
 
    const content = document.querySelector('.editSchedule__content');
-
+    console.log(content);
    //få fat i alle buttons og tilføj eventlisteners
-   const buttons_edit = document.querySelector('.button__primary--big')
+   const buttons__edit = document.querySelectorAll('.button__primary--big')
+   console.log(buttons__edit[1]);
+   
    const button__openEditModes = buttons__edit[1];
    button__openEditModes.addEventListener('click', openEditModes);
 
-   const button__back = document.querySelector('.button__back');
-   button__back.addEventListener('click', goPageBack)
+//    const button__back = document.querySelector('.button__back');
+//    button__back.addEventListener('click', goPageBack)
 
-   const button__forth = document.querySelector('.button__forth');
-   button__forth.addEventListener('click', goPageForth);
+//    const button__forth = document.querySelector('.button__forth');
+//    button__forth.addEventListener('click', goPageForth);
 
-    let html = 'index.html'
+    const aside = content.parentNode;
 
    // edit --> editMode-1
    function openEditModes() {
-        html = 'html/editMode-1.html'
-        const newHTML = document.createRange().createContextualFragment(html);
-
+        
         // opret modesTabs
         const modesTabs = document.createElement('nav');
         modesTabs.classList.add('modesTabs')
@@ -214,11 +214,29 @@ function changeToAway(activePosition) {
         modesTabs.appendChild(tabsAthome);
         modesTabs.appendChild(tabsActive);
 
-        content.parenNode.insertBefore()
-        // referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+        
+        
+        aside.insertBefore(modesTabs, content);
 
         //skift content
-        content.innerHTML = "";
-        content.appendChild(newHTML);
+        // fetch html fil 
+        fetch('html/editMode-1.html')
+        .then((response) => {
+            // if (!response.ok) {
+            //     throw new Error(`HTTP Error! Status: ${response.status}`);
+            // }
+            return response.text();
+        })
+        .then((htmlString) => {
+            console.log(htmlString);
+            //create html out of string
+            const newHTML = document.createRange().createContextualFragment(htmlString);
+            content.innerHTML = "";
+            content.appendChild(newHTML);
+
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
    }
 
