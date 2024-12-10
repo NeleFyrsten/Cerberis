@@ -14,44 +14,38 @@
         <h4 class="profil__text">Vildmosevej 3</h4>
         <img class="menu__burgerMenu" src="images/burgerMenu.svg" alt="">
     </section>
-        <ul class="menuItems">
-            <li class="menu__item">
-                <a class="menu__link" href="#">
-                    <img class="menu__icon" src="images/icon_home.svg" alt="home icon">Home
-                </a>
-            </li>
-            <li class="menu__item menu__item--active">
-                <a class="menu__link" href="#">
-                    <img class="menu__icon" src="images/icon__schedule.svg" alt="Schedule icon">Schedule
-                </a>
-            </li>
-            <li class="menu__item">
-                <a class="menu__link" href="#">
-                    <img class="menu__icon" src="images/icon__rooms.svg" alt="Rooms icon">Rooms
-                </a>
-            </li>
-            <li class="menu__item">
-                <a class="menu__link" href="#">
-                    <img class="menu__icon" src="images/icon__heatSource.svg" alt="Heat Source icon">Heat Source
-                </a>
-            </li>
-            <li class="menu__item">
-                <a class="menu__link" href="#">
-                    <img class="menu__icon" src="images/icon__statistics.svg" alt="Statistics icon">Statistics
-                </a>
-            </li>
-        </ul>
-        <ul class="menuItems">
-            <li class="menu__item ">
-                <a class="menu__link" href="#">
-                    <img class="menu__icon" src="images/icon__settings.svg" alt="Settings icon"> Settings
-                </a>
-            </li>
-            <li class="menu__item">
-                <a class="menu__link" href="#">
-                    <img class="menu__icon" src="images/icon__logout.svg" alt="Logout icon">Logout
-                </a>
-            </li>
+        <section class="menuItems">
+            <a class="menuItems__link" href="#">
+                <img class="menuItems__icon" src="images/icon_home.svg" alt="home icon">
+                <p class="menuItems__text">Home</p>
+            </a>
+            <a class="menuItems__link menu__item--active" href="#">
+                <img class="menuItems__icon" src="images/icon__schedule.svg" alt="Schedule icon">
+                <p class="menuItems__text">Schedule</p>
+            </a>
+            <a class="menuItems__link" href="#">
+                <img class="menuItems__icon" src="images/icon__rooms.svg" alt="Rooms icon">
+                <p class="menuItems__text">Rooms</p>
+            </a>
+            <a class="menuItems__link" href="#">
+                <img class="menuItems__icon" src="images/icon__heatSource.svg" alt="Heat Source icon">
+                <p class="menuItems__text">Heat Source</p>
+            </a>
+            <a class="menuItems__link" href="#">
+                <img class="menuItems__icon" src="images/icon__statistics.svg" alt="Statistics icon">
+                <p class="menuItems__text">Statistics</p>
+            </a>   
+        </section>  
+        <section class="menuItems">
+            <a class="menuItems__link" href="#">
+                <img class="menuItems__icon" src="images/icon__settings.svg" alt="Settings icon">
+                <p class="menuItems__text">Settings</p>
+            </a>  
+            <a class="menuItems__link" href="#">
+                <img class="menuItems__icon" src="images/icon__logout.svg" alt="Logout icon">
+                <p class="menuItems__text">Logout</p>
+            </a>   
+        </section>
     </nav>
     <!-- Main schedule - calendar -->
     <main class="schedule__main">
@@ -64,7 +58,7 @@
             <h3>Edit schedule</h3>
             <p class="sectionTitle__description">Which part of your schedule would you like to edit?</p>
         </section>
-        <section class="actions actions__editSchedule">
+       
             <section class="actions__primaryChoice">
                 <button class="button button__primary button__primary--big">
                     <section class="button__title">
@@ -87,7 +81,7 @@
                 </button>
                 <button class="button button__secondary">Cancel</button>
             </section>
-        </section>
+       
     </aside>
     <script src="script.js"></script>
 </body>
