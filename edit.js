@@ -170,8 +170,34 @@ function changeToAway(activePosition) {
  *           SKIFT INDHOLD
    ________________________________________*/
 
-   const content = document.querySelector('.editSchedule__content');
-    console.log(content);
+const content = document.querySelector('.editSchedule__content');
+console.log(content);
+const aside = content.parentNode;
+
+fetchIndexHTML()
+
+function fetchIndexHTML() {
+    fetch('html/edit.html')
+        .then((response) => {
+            // if (!response.ok) {
+            //     throw new Error(`HTTP Error! Status: ${response.status}`);
+            // }
+            return response.text();
+        })
+        .then((htmlString) => {
+            console.log(htmlString);
+            //create html out of string
+            const newHTML = document.createRange().createContextualFragment(htmlString);
+            content.innerHTML = "";
+            content.appendChild(newHTML);
+    
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+}
+
+
    //få fat i alle buttons og tilføj eventlisteners
    const buttons__edit = document.querySelectorAll('.button__primary--big')
    console.log(buttons__edit[1]);
@@ -179,13 +205,13 @@ function changeToAway(activePosition) {
    const button__openEditModes = buttons__edit[1];
    button__openEditModes.addEventListener('click', openEditModes);
 
-//    const button__back = document.querySelector('.button__back');
-//    button__back.addEventListener('click', goPageBack)
+   const button__back = document.querySelector('.button__back');
+   button__back.addEventListener('click', goPageBack)
 
 //    const button__forth = document.querySelector('.button__forth');
 //    button__forth.addEventListener('click', goPageForth);
 
-    const aside = content.parentNode;
+    
 
    // edit --> editMode-1
    function openEditModes() {
@@ -210,16 +236,24 @@ function changeToAway(activePosition) {
         tabsActive.classList.add('modesTabs__active');
 
         modesTabs.appendChild(tabsAthome);
-        modesTabs.appendChild(tabsAthome);
-        modesTabs.appendChild(tabsAthome);
+        modesTabs.appendChild(tabsAsleep);
+        modesTabs.appendChild(tabsAway);
         modesTabs.appendChild(tabsActive);
 
+        //tilføj en ekstra class, så vi ved, hvilken indholdsside er aktiv
+        content.classList.add('content--rooms')
         
-        
+        // tilføj tabsene 
         aside.insertBefore(modesTabs, content);
+        
+        //kald funktionen for at hente editMode-1
+        fetchEditMode1();
+   }
+
+    function fetchEditMode1() {
 
         //skift content
-        // fetch html fil 
+        // fetch html fil -> her får vi en string
         fetch('html/editMode-1.html')
         .then((response) => {
             // if (!response.ok) {
@@ -233,10 +267,21 @@ function changeToAway(activePosition) {
             const newHTML = document.createRange().createContextualFragment(htmlString);
             content.innerHTML = "";
             content.appendChild(newHTML);
-
+    
         })
         .catch((error) => {
             console.error("Error:", error);
         });
+    }
+
+    
+   function goPageBack() {
+    /** mulighed 1: editMode-2 --> editMode-1
+     *  mulighed 2: editMode-1 --> index
+     * --> vi skal finde ud af hvor vi er henne
+     */
+    if(content.classList.contains('content--rooms')) {
+
+    }
    }
 
