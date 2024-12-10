@@ -73,6 +73,7 @@ body {
     font-style: normal;
     font-weight: 400;
     margin: 0;
+    overflow: hidden;
 }
 
 h2{
@@ -109,7 +110,7 @@ p{
 /* Buttons */
 .button{
     font-family: "open-sans", sans-serif;
-    font-size: 16;
+    font-size: 16px;
     width: fit-content;
     color: var(--text__primary);
     border: solid 0.5px;
@@ -192,38 +193,34 @@ p{
         color: var(--text__onDark);
         gap: var(--spacing--4);
         padding: var(--spacing--12) 0 var(--spacing--12) var(--spacing--12);
-       
 
     .menuItems__icon{
         margin-right: var(--spacing--8);
         }
     }
-
-    .menu__item--active {
-        position: relative;  /* Ensure it's the reference point for pseudo-element */
-        background-color: var(--container__primary);
-        border-radius: var(--radius--xxl) 0 0 var(--radius--xxl);
+    .menuItemActive{
+        position: relative;
+        display: flex;
+        align-items: center; 
+        justify-content: flex-start;
+       
     }
-    
-    .menu__item--active::before {
-        content: "";
+    .menuItemActive__image{
         position: absolute;
-        top: -10%;  /* Adjust this to control how much it extends upwards */
-        left: -10%;  /* Adjust this to control how much it extends to the left */
-        width: 120%;  /* Image width extending beyond the element */
-        height: 120%;  /* Image height extending beyond the element */
-        background-image: url(images/menu__active.svg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;  /* Ensure image scales properly */
-        z-index: -1;  /* Make sure it stays behind the text and other elements */
+        top: 50%; 
+        left: 50%; 
+        transform: translateX(-50%) translateY(-50%);
+        z-index: -1;
+        right: 0;
+    
+        width: 101%;
     }
-.menu__item--active .menuItems__text {
-    color: var(--text__accent);
-}
-.menu__item--active .menuItems__icon {
-  
-}
+    .menuItems__text--active {
+        color: var(--text__accent);
+    }
+    .menuItems__icon--active{
+    stroke: var(--text__accent) ;
+    }
 /* dashboard */
 
 .room{
@@ -251,8 +248,7 @@ p{
     align-items: center;
     position: fixed;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 0;
     box-shadow: var(--primary--dropshadow);
     border-radius: var(--radius--xxl) var(--radius--xxl) 0 0;
 }
@@ -281,8 +277,12 @@ p{
 }
 .sectionTitle{
     margin-right: auto;
-
 }
+
+.sectionTitle__recommendation {
+    color: var(--text__secondary);
+}
+
 .actions__primaryChoice{
     margin: 0;
     height: 80%;
@@ -294,6 +294,11 @@ p{
     align-items: center;
 }
     
+.actions__backAndForth {
+    display: flex;
+    justify-content: space-between;
+}
+
 .button__primary--big{
         width: 100%;
         padding: var(--spacing--32) var(--spacing--8);
@@ -330,22 +335,6 @@ p{
 /* EdidtMode-1 */
 
 /* tabs */
-.editMode{
-    box-sizing: border-box;
-    height: 90%;
-    width: calc(100% - 12px); 
-    padding: var(--spacing--20);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: var(--primary--dropshadow);
-    border-radius: var(--radius--xxl) var(--radius--xxl) 0 0;
-}
-
 .modesTabs{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -360,6 +349,7 @@ p{
     text-align: center;
     position: relative; 
     z-index: 1; 
+    list-style: none;
 }
 
 .modesTabs__active {
@@ -524,135 +514,149 @@ p{
   
  /* Typography big screen */
 
-h2{
-    font-size: 24px;
-}
-h3{
-    font-size: 20px;
-    line-height: 24px;
-}
-h4{
-    font-size: 18px;
+    h2{
+        font-size: 24px;
+    }
+    h3{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    h4{
+        font-size: 18px;
+    }
+
+    p{
+        font-size: 16px;
+    } 
+    .button{
+        font-size: 20px;
+        padding: var(--spacing--16) var(--spacing--32);
+    }
+    /* Edit */
+    .editSchedule {
+        max-width: 575px;
+        padding: var(--spacing--24);
+    }
+    .actions__primaryChoice{
+        max-height: 600px;
+        padding: var(--spacing--24);
+        height: 100%;
+    }
+    /* menu */
+    .menu{
+        padding: var(--spacing--24) 0 0 var(--spacing--24);
+    }
+        
+    .menuItems{
+        margin-top: var(--spacing--80);
+    }
+    .menuItems__link{
+        margin-bottom: var(--spacing--32);
+    }
+    .menuItemActive__image{
+        transform: translateX(-50%) translateY(calc(-50% - 16px));
+    }
+    .button__guide{
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+    }
+
+    /* edit page 1 */
+    .editMode{
+        max-width: 575px;
+        padding: var(--spacing--80)  var(--spacing--32)  var(--spacing--32) var(--spacing--32);
+    }
+    .modesTabs{
+        margin-bottom: var(--spacing--40);
+        max-width: 450px;
+    }
+    .editMode__rooms{
+        margin-bottom: var(--spacing--40);
+        max-width: 450px;
+    }
+    .sectionTitle{
+        margin-bottom: var(--spacing--40);
+    }
+    .chooseRooms{
+        padding: 0 var(--spacing--12);
+        margin-bottom: var(--spacing--40);
+
+    }
+    .chooseRooms__item{
+        margin-bottom: var(--spacing--20);
+
+        .room--editMode {
+            padding: var(--spacing--8) var(--spacing--20);
+        }
+    }
+    .chooseRooms__checkbox{
+        width: 30px;
+        height: 30px;
+        margin-right: var(--spacing--16);
+    }
+    .pageIndicator{
+        gap: 10px;
+
+        .pageIndicator__dot{
+            width: 10px;
+            height: 10px;
+        }
+    }
 }
 
-p{
-    font-size: 16px;
-} 
-.button{
-    font-size: 20px;
-    padding: var(--spacing--16) var(--spacing--32);
-}
-/* Edit */
-.editSchedule {
-    max-width: 575px;
-    padding: var(--spacing--24);
-}
-.actions__primaryChoice{
-    max-height: 600px;
-    padding: var(--spacing--24);
-    height: 100%;
-}
-/* menu */
-.menu{
-    padding: var(--spacing--24) 0 0 var(--spacing--24);
-}
+@media screen and (min-width:600px) {
     
-.menuItems{
-    margin-top: var(--spacing--80);
-}
-.menuItems__link{
-    margin-bottom: var(--spacing--32);
-}
-.button__guide{
-    width: 36px;
-    height: 36px;
-    font-size: 20px;
-}
-
-/* edit page 1 */
-.editMode{
-    max-width: 575px;
-    padding: var(--spacing--80)  var(--spacing--32)  var(--spacing--32) var(--spacing--32);
-}
-.modesTabs{
-    margin-bottom: var(--spacing--40);
-    max-width: 450px;
-}
-.editMode__rooms{
-    margin-bottom: var(--spacing--40);
-    max-width: 450px;
-}
-.sectionTitle{
-    margin-bottom: var(--spacing--40);
-}
-.chooseRooms{
-    padding: 0 var(--spacing--12);
-    margin-bottom: var(--spacing--40);
-
-}
-.chooseRooms__item{
-    margin-bottom: var(--spacing--20);
-
-    .room--editMode {
-        padding: var(--spacing--8) var(--spacing--20);
+    .editSchedule {
+        left: 50%;
+        transform: translateX(-50%);
     }
-}
-.chooseRooms__checkbox{
-    width: 30px;
-    height: 30px;
-    margin-right: var(--spacing--16);
-}
-.pageIndicator{
-    gap: 10px;
-
-    .pageIndicator__dot{
-        width: 10px;
-        height: 10px;
-    }
-}
 }
 
 /* resonsive tablet */
 @media screen and (min-width: 1000px ){
 
 /* menu */
-.menu{
-    max-width: 241px;
-    padding: var(--spacing--32) 0 0 var(--spacing--32);
-    transform: translateX(0%);  
-}
-.menu__burgerMenu{
-    display: none;
-}
-.menuItems__link{
-    margin-bottom: var(--spacing--40);
-}
-/* edidt */
-.editSchedule {
-    padding: var(--spacing--24) var(--spacing--64);
-    max-width: 600px; 
-    left: 300px; 
-    transform: none; 
-}
-.editMode{
-    padding: var(--spacing--80)  var(--spacing--64)  var(--spacing--32) var(--spacing--64);
-    max-width: 600px; 
-    left: 300px; 
-    transform: none; 
-}
-.modesTabs{
-    margin-bottom: var(--spacing--48);
-    
-}
-.editMode__rooms{
-    margin-bottom: var(--spacing--48);
-    
-}
-.sectionTitle{
-    margin-bottom: var(--spacing--48);
-}
-.chooseRooms{
-    margin-bottom: var(--spacing--48);
+    .menu{
+        max-width: 241px;
+        padding: var(--spacing--32) 0 0 var(--spacing--32);
+        transform: translateX(0%);  
+    }
+    .menu__burgerMenu{
+        display: none;
+    }
+    .menuItems__link{
+        margin-bottom: var(--spacing--40);
+    }
+    .menuItemActive__image{
+        transform: translateX(-50%) translateY(calc(-50% - 20px));
+    }
+    /* edidt */
+    .editSchedule {
+        padding: var(--spacing--24) var(--spacing--64);
+        max-width: 600px; 
+        left: 300px; 
+        transform: none; 
+    }
+    .editMode{
+        padding: var(--spacing--80)  var(--spacing--64)  var(--spacing--32) var(--spacing--64);
+        max-width: 600px; 
+        left: 300px; 
+        transform: none; 
+    }
+    .modesTabs{
+        margin-bottom: var(--spacing--48);
+        
+    }
+    .editMode__rooms{
+        margin-bottom: var(--spacing--48);
+        
+    }
+    .sectionTitle{
+        margin-bottom: var(--spacing--48);
+    }
+    .chooseRooms{
+        margin-bottom: var(--spacing--48);
 
-}
+    }
 }

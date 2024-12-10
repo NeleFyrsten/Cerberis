@@ -19,10 +19,16 @@
                 <img class="menuItems__icon" src="images/icon_home.svg" alt="home icon">
                 <p class="menuItems__text">Home</p>
             </a>
-            <a class="menuItems__link menu__item--active" href="#">
-                <img class="menuItems__icon" src="images/icon__schedule.svg" alt="Schedule icon">
-                <p class="menuItems__text">Schedule</p>
-            </a>
+            <section class="menuItemActive">
+                <img class="menuItemActive__image"src="images/menu__active.svg" alt="">
+                <a class="menuItems__link" href="#">
+                    <svg class="menuItems__icon menuItems__icon--active" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.825 14V18.5L20.6375 21.3125" stroke="#FFC176" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12.875 8.75505C14.5297 7.79784 16.4509 7.25 18.5 7.25C24.7131 7.25 29.75 12.2868 29.75 18.5C29.75 24.7131 24.7131 29.75 18.5 29.75C12.2868 29.75 7.25 24.7131 7.25 18.5C7.25 16.4509 7.79784 14.5297 8.75505 12.875" stroke="#FFC176" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <p class="menuItems__text menuItems__text--active ">Schedule</p>
+                </a>
+            </section>
             <a class="menuItems__link" href="#">
                 <img class="menuItems__icon" src="images/icon__rooms.svg" alt="Rooms icon">
                 <p class="menuItems__text">Rooms</p>
@@ -54,11 +60,11 @@
     <aside class="editSchedule">
         <span class="editSchedule__dragDown"></span>
         <button class="button__guide">?</button>
-        <section class="sectionTitle">
-            <h3>Edit schedule</h3>
-            <p class="sectionTitle__description">Which part of your schedule would you like to edit?</p>
-        </section>
-       
+        <article class="editSchedule__content">
+            <section class="sectionTitle">
+                <h3>Edit schedule</h3>
+                <p class="sectionTitle__description">Which part of your schedule would you like to edit?</p>
+            </section>
             <section class="actions__primaryChoice">
                 <button class="button button__primary button__primary--big">
                     <section class="button__title">
@@ -81,7 +87,7 @@
                 </button>
                 <button class="button button__secondary">Cancel</button>
             </section>
-       
+        </article>
     </aside>
     <script src="script.js"></script>
 </body>

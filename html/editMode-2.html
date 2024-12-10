@@ -1,23 +1,41 @@
-<aside class="editMode editMode--atHome">
-    <nav class="modesTabs">
-        <li class="modesTabs__item">At Home</li>
-        <li class="modesTabs__item">Asleep</li>
-        <li class="modesTabs__item">Away</li>
-        <span class="modesTabs__active"></span>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerberis Schedule</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/qbj6lja.css">
+</head>
+<body>
+    <nav class="menu">
     </nav>
-    <article class="editMode__temperature">
-        <section class="sectionTitle">
-            <h3>Set temperature</h3>
-            <p class="sectionTitle__description">Set the temperature for your chosen rooms when you are at home</p>
-        </section>
-        <p>A temperature between 18° and 22° all year round is generally recommended.</p>
-        <section class="actions actions__backAndforth">
-            <button class="button button__secondary">Back</button>
-            <button class="button button__primary">Save</button>
+    <main class="schedule__main">
+       
+    </main> -->
+<aside class="editSchedule">
+    <section class="modesTabs modesTabs--temperature">
+        <li class="modesTabs__item modesTabs__item--atHome">At Home</li>
+        <li class="modesTabs__item modesTabs__item--asleep">Asleep</li>
+        <li class="modesTabs__item modesTabs__item--away">Away</li>
+        <span class="modesTabs__active"></span>
+    </section>
+    <article class="editSchedule__content">
+        <article class="editSchedule__temperature">
+            <section class="sectionTitle">
+                <h3>Set temperature</h3>
+                <p class="sectionTitle__description">Set the temperature for your chosen rooms when you are at home</p>
+            </section>
+            <p class="sectionTitle__recommendation">A temperature between 18° and 22° all year round is generally recommended.</p>
+            <section class="actions actions__backAndForth actions--editMode2">
+                <button class="button button__secondary button__back">Back</button>
+                <button class="button button__primary button__forth">Save</button>
+            </section>
+        </article>
+        <section class="pageIndicator">
+            <span class="pageIndicator__dot"></span>
+            <span class="pageIndicator__dot active"></span>
         </section>
     </article>
-    <section class="pageIndicator">
-        <span class="pageIndicator__dot"></span>
-        <span class="pageIndicator__dot active"></span>
-    </section>
 </aside>
+</body>

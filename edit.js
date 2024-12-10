@@ -164,3 +164,61 @@ function changeToAway(activePosition) {
          }, 500)
     }
 }
+
+
+/**________________________________________
+ *           SKIFT INDHOLD
+   ________________________________________*/
+
+   const content = document.querySelector('.editSchedule__content');
+
+   //få fat i alle buttons og tilføj eventlisteners
+   const buttons_edit = document.querySelector('.button__primary--big')
+   const button__openEditModes = buttons__edit[1];
+   button__openEditModes.addEventListener('click', openEditModes);
+
+   const button__back = document.querySelector('.button__back');
+   button__back.addEventListener('click', goPageBack)
+
+   const button__forth = document.querySelector('.button__forth');
+   button__forth.addEventListener('click', goPageForth);
+
+    let html = 'index.html'
+
+   // edit --> editMode-1
+   function openEditModes() {
+        html = 'html/editMode-1.html'
+        const newHTML = document.createRange().createContextualFragment(html);
+
+        // opret modesTabs
+        const modesTabs = document.createElement('nav');
+        modesTabs.classList.add('modesTabs')
+
+        const tabsAthome = document.createElement('li');
+        tabsAthome.classList.add('modesTabs__item', 'modesTabs__item--atHome');
+        tabsAthome.textContent = 'At Home';
+
+        const tabsAsleep = document.createElement('li');
+        tabsAsleep.classList.add('modesTabs__item', 'modesTabs__item--asleep');
+        tabsAsleep.textContent = 'Asleep';
+
+        const tabsAway = document.createElement('li');
+        tabsAway.classList.add('modesTabs__item', 'modesTabs__item--away');
+        tabsAway.textContent = 'Away';
+
+        const tabsActive = document.createElement('span');
+        tabsActive.classList.add('modesTabs__active');
+
+        modesTabs.appendChild(tabsAthome);
+        modesTabs.appendChild(tabsAthome);
+        modesTabs.appendChild(tabsAthome);
+        modesTabs.appendChild(tabsActive);
+
+        content.parenNode.insertBefore()
+        // referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+
+        //skift content
+        content.innerHTML = "";
+        content.appendChild(newHTML);
+   }
+

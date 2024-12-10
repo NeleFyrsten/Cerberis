@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,77 +11,82 @@
     <nav class="menu">
     </nav>
     <main class="schedule__main">
-        <!-- calendar -->
-    </main>
+         calendar -->
+    <!-- </main>  -->
 <!-- aside skal fjernes  -->
-    <aside class="editMode editMode--atHome">
-    <section class="modesTabs">
-         <section class="modesTabs__item modesTabs__item--atHome">At Home</section>
-         <section class="modesTabs__item modesTabs__item--asleep">Asleep</section>
-         <section class="modesTabs__item modesTabs__item--away">Away</section>
-        <span class="modesTabs__active"></span>
-    </section>
-        <article class="editMode__rooms">
-        <section class="sectionTitle">
-            <h3>Select room</h3>
-            <p class="sectionTitle__description">Which part of your schedule would you like to edit?</p>
+    <aside class="editSchedule">
+        <nav class="modesTabs">
+            <li class="modesTabs__item modesTabs__item--atHome">At Home</li>
+            <li class="modesTabs__item modesTabs__item--asleep">Asleep</li>
+            <li class="modesTabs__item modesTabs__item--away">Away</li>
+            <span class="modesTabs__active"></span>
+        </nav>
+        <article class="editSchedule__content">
+            <article class="editMode__rooms">
+            <section class="sectionTitle">
+                <h3>Select room</h3>
+                <p class="sectionTitle__description">Which part of your schedule would you like to edit?</p>
+            </section>
+            <section class="chooseRooms">
+                <section class="chooseRooms__item">
+                    <input class="chooseRooms__checkbox" type="checkbox">
+                    <section class="room room--editMode">
+                        <img class="room__icon" src="../images/icon__livingroom.svg" alt="">
+                        <h4 class="room__title">Living room</h4>
+                        <h4 class="room__temperature --medium">22°</h4>
+                    </section>
+                </section>
+                <section class="chooseRooms__item">
+                    <input class="chooseRooms__checkbox" type="checkbox">
+                    <section class="room room--editMode">
+                        <img class="room__icon" src="../images/icon__bedroom.svg" alt="">
+                        <h4 class="room__title">Master bedroom</h4>
+                        <h4 class="room__temperature --medium">22°</h4>
+                    </section>
+                </section>
+                <section class="chooseRooms__item">
+                    <input class="chooseRooms__checkbox" type="checkbox">
+                    <section class="room room--editMode">
+                        <img class="room__icon" src="../images/icon__bathroom.svg" alt="">
+                        <h4 class="room__title">Bathroom</h4>
+                        <h4 class="room__temperature --medium">18°</h4>
+                    </section>
+                </section>
+                <section class="chooseRooms__item">
+                    <input class="chooseRooms__checkbox" type="checkbox">
+                    <section class="room room--editMode">
+                        <img class="room__icon" src="../images/icon__kitchen.svg" alt="">
+                        <h4 class="room__title">Kitchen</h4>
+                        <h4 class="room__temperature --medium">22°</h4>
+                    </section>
+                </section>
+                <section class="chooseRooms__item">
+                    <input class="chooseRooms__checkbox" type="checkbox">
+                    <section class="room room--editMode">
+                        <img class="room__icon" src="../images/icon__bedroom.svg" alt="">
+                        <h4 class="room__title">Nele's room</h4>
+                        <h4 class="room__temperature --medium">20°</h4>
+                    </section>
+                </section>
+                <section class="chooseRooms__item">
+                    <input class="chooseRooms__checkbox" type="checkbox">
+                    <section class="room room--editMode">
+                        <img class="room__icon" src="../images/icon__bedroom.svg" alt="">
+                        <h4 class="room__title">Emma's room</h4>
+                        <h4 class="room__temperature --medium">18°</h4>
+                    </section>
+                </section>
+            </section>
+            <section class="actions actions__backAndForth actions--editMode1">
+                <button class="button button__secondary button__back">Back</button>
+                <button class="button button__primary button__forth">Next</button>
+            </section>
+        </article>
+        <section class="pageIndicator">
+            <span class="pageIndicator__dot active"></span>
+            <span class="pageIndicator__dot"></span>
         </section>
-        <section class="chooseRooms">
-            <section class="chooseRooms__item">
-                <input class="chooseRooms__checkbox" type="checkbox">
-                <section class="room room--editMode">
-                    <img class="room__icon" src="../images/icon__livingroom.svg" alt="">
-                    <h4 class="room__title">Living room</h4>
-                    <h4 class="room__temperature --medium">22°</h4>
-                </section>
-            </section>
-            <section class="chooseRooms__item">
-                <input class="chooseRooms__checkbox" type="checkbox">
-                <section class="room room--editMode">
-                    <img class="room__icon" src="../images/icon__bedroom.svg" alt="">
-                    <h4 class="room__title">Master bedroom</h4>
-                    <h4 class="room__temperature --medium">22°</h4>
-                </section>
-            </section>
-            <section class="chooseRooms__item">
-                <input class="chooseRooms__checkbox" type="checkbox">
-                <section class="room room--editMode">
-                    <img class="room__icon" src="../images/icon__bathroom.svg" alt="">
-                    <h4 class="room__title">Bathroom</h4>
-                    <h4 class="room__temperature --medium">18°</h4>
-                </section>
-            </section>
-            <section class="chooseRooms__item">
-                <input class="chooseRooms__checkbox" type="checkbox">
-                <section class="room room--editMode">
-                    <img class="room__icon" src="../images/icon__kitchen.svg" alt="">
-                    <h4 class="room__title">Kitchen</h4>
-                    <h4 class="room__temperature --medium">22°</h4>
-                </section>
-            </section>
-            <section class="chooseRooms__item">
-                <input class="chooseRooms__checkbox" type="checkbox">
-                <section class="room room--editMode">
-                    <img class="room__icon" src="../images/icon__bedroom.svg" alt="">
-                    <h4 class="room__title">Nele's room</h4>
-                    <h4 class="room__temperature --medium">20°</h4>
-                </section>
-            </section>
-            <section class="chooseRooms__item">
-                <input class="chooseRooms__checkbox" type="checkbox">
-                <section class="room room--editMode">
-                    <img class="room__icon" src="../images/icon__bedroom.svg" alt="">
-                    <h4 class="room__title">Emma's room</h4>
-                    <h4 class="room__temperature --medium">18°</h4>
-                </section>
-            </section>
-        </section>
-        <button class="button button__primary ">Next</button>
     </article>
-    <section class="pageIndicator">
-        <span class="pageIndicator__dot active"></span>
-        <span class="pageIndicator__dot"></span>
-    </section>
 </aside>
 <script src="../edit.js"></script>
 </body>
