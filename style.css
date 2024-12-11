@@ -100,6 +100,12 @@ p{
     margin: 0;
     font-weight: 400;
 }
+
+li {
+    list-style: none;
+    font-size: 16px;
+}
+
 .--bold{
     font-weight: 700;
 }
@@ -212,6 +218,8 @@ p{
         transform: translateX(-50%) translateY(-50%);
         z-index: -1;
         right: 0;
+        opacity: 0;
+        transition: 0.4s ease-in-out;
     
         width: 101%;
     }
@@ -242,7 +250,9 @@ p{
     box-sizing: border-box;
     height: 90%;
     width: calc(100% - 12px); 
-    padding: var(--spacing--20);
+    padding-inline: var(--spacing--20);
+    padding-block-start: var(--spacing--20);
+    padding-block-end: var(--spacing--40);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -251,6 +261,16 @@ p{
     right: 0;
     box-shadow: var(--primary--dropshadow);
     border-radius: var(--radius--xxl) var(--radius--xxl) 0 0;
+    transition: 0.3s ease-in-out;
+    
+    .editSchedule__content {
+        overflow: scroll;
+        height: 100%;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
 }
 
 .editSchedule__dragDown{
@@ -270,6 +290,7 @@ p{
     background-color: var(--container__button--secondary);
     margin-left: auto;
     margin-bottom: var(--spacing--20);
+    transform: translateX(10px) translateY(-10px);
 
     &:active{
         background-color: #f2f2f2;
@@ -277,10 +298,13 @@ p{
 }
 .sectionTitle{
     margin-right: auto;
+    padding-inline: var(--spacing--12);
 }
 
-.sectionTitle__recommendation {
+.temperature__recommendation {
     color: var(--text__secondary);
+    text-align: center;
+    margin-block: var(--spacing--40);
 }
 
 .actions__primaryChoice{
@@ -343,51 +367,66 @@ p{
     margin-bottom: var(--spacing--24);
     background-color: #F2F2F2;
     position: relative; 
-}
 
-.modesTabs__item {
-    text-align: center;
-    position: relative; 
-    z-index: 1; 
-    list-style: none;
-}
+    &.modesTabs--single {
+        display: flex;
+        justify-content: center;
 
-.modesTabs__active {
-    position: absolute; 
-    bottom: 0; 
-    left: var(--tab__active--left); 
-    width: 33.33%; 
-    height: 35.5px; 
-    background-color: #FFDDB4; 
-    border-bottom: 2px solid #FFB051;
-    z-index: 0; 
+        .modesTabs__active {
+            width: 100%;
+            left: 0;
+        }
+    }
+
+    .modesTabs__item {
+        text-align: center;
+        position: relative; 
+        z-index: 1; 
+    }
     
-     &.homeToSleep, &.sleepToAway{
-        animation-name: oneToRight;
-        /* animation-duration: 0.5s; */
-        animation-duration: 0.5s;
-        animation-timing-function: ease-in-out;
-    }
-
-    &.homeToAway{
-        animation-name: twoToRight;
-        animation-duration: 0.5s;
-        animation-timing-function: ease-in-out;
-    }
-
-    &.sleepToHome, &.awayToSleep{
-        animation-name: oneToLeft;
-        animation-duration: 0.5s;
-        animation-timing-function: ease-in-out;
-    }
-
-
-    &.awayToHome{
-        animation-name: twoToLeft;
-        animation-duration: 0.5s;
-        animation-timing-function: ease-in-out;
+    .modesTabs__active {
+        position: absolute; 
+        bottom: 0; 
+        left: var(--tab__active--left); 
+        width: 33.33%; 
+        height: 35.5px; 
+        background-color: #FFDDB4; 
+        border-bottom: 2px solid #FFB051;
+        z-index: 0; 
+        transition: 0.5s ease-in-out;
+        
+         &.homeToSleep, &.sleepToAway{
+            animation-name: oneToRight;
+            /* animation-duration: 0.5s; */
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+        }
+    
+        &.homeToAway{
+            animation-name: twoToRight;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+        }
+    
+        &.sleepToHome, &.awayToSleep{
+            animation-name: oneToLeft;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+        }
+    
+    
+        &.awayToHome{
+            animation-name: twoToLeft;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+        }
     }
 }
+
 
 @keyframes oneToRight {
     0% {
@@ -448,8 +487,10 @@ p{
     }
 }
 
-.editMode__rooms{
+.content--rooms, .content--temperature{
     width: 100%;
+    padding-bottom: var(--spacing--32);
+    position: relative;
 }
 .chooseRooms{
     padding: var(--spacing--8);
@@ -493,21 +534,30 @@ p{
     background-position: center; 
     background-size: cover; 
 }
+
+.temperature__graphic {
+    width: 100%;
+}
+
 .pageIndicator{
     display: flex; 
     justify-content: center; 
     gap: 10px;
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
 
     .pageIndicator__dot{
     width: 8px; 
     height: 8px;
     border-radius: 50%; 
     background-color:#E7E7E7;
+
+        &.active{
+            background-color: #606A92;
+        }
     }
 }
-.pageIndicator__dot.active{
-    background-color: #606A92;
-        }
 
 /* responsive large mobile */
 @media screen and (min-width: 390px ) {
@@ -528,6 +578,11 @@ p{
     p{
         font-size: 16px;
     } 
+
+    li {
+        font-size: 20px;
+    }
+
     .button{
         font-size: 20px;
         padding: var(--spacing--16) var(--spacing--32);
@@ -535,7 +590,9 @@ p{
     /* Edit */
     .editSchedule {
         max-width: 575px;
-        padding: var(--spacing--24);
+        padding-inline: var(--spacing--24);
+        padding-block-start: var(--spacing--24);
+        padding-block-end: var(--spacing--40);
     }
     .actions__primaryChoice{
         max-height: 600px;
@@ -603,6 +660,12 @@ p{
             height: 10px;
         }
     }
+
+    .modesTabs {
+        .modesTabs__active {
+            height: 41px;
+        }
+    }
 }
 
 @media screen and (min-width:600px) {
@@ -630,6 +693,7 @@ p{
     }
     .menuItemActive__image{
         transform: translateX(-50%) translateY(calc(-50% - 20px));
+        opacity: 1;
     }
     /* edidt */
     .editSchedule {
