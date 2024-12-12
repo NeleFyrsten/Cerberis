@@ -1,12 +1,14 @@
-// hvad er den nye left position?
+// tab animation: hvad er den nye left position?
 let activeTab__new = "0"
+
 /**________________________________________
  *           SKIFT INDHOLD
    ________________________________________*/
 
-// få fat i content section 
+// få fat i content section, hvor indholdet skal sættes ind
 const content = document.querySelector('.editSchedule__content');
 console.log(content);
+//få fat i parent elementet, så tabs kan sættes ind før content sektion
 const aside = content.parentNode;
 
 // load index html
@@ -17,6 +19,7 @@ fetchIndexHTML()
 //___________________________________________________________
 
 function fetchIndexHTML() {
+    //hent filen --> return er en string
     fetch('html/edit.html')
         .then((response) => {
             // if (!response.ok) {
@@ -26,15 +29,18 @@ function fetchIndexHTML() {
         })
         .then((htmlString) => {
             console.log(htmlString);
-            //create html out of string
+            // lave string om til html
             const newHTML = document.createRange().createContextualFragment(htmlString);
+            //slet det nuværende indhold og erstat det med det nye
             content.innerHTML = "";
             content.appendChild(newHTML);
     
+            // tilføj en klasse, så det er klart hvilken side er aktiv
             content.classList.add('content--edit')
 
-            // få fat i buttons på editsiden [1], fordi vi kun har brug for button no. 2
-            // skal være herinde, fordi den ellers allerede søger efter knapperne, når siden ikke endnu er loadet.
+            // få fat i buttons på editsiden. [1], fordi vi kun har brug for button no. 2
+            // skal være herinde, fordi den ellers allerede søger efter knapperne, 
+            // når siden ikke endnu er loadet.
             const buttons__edit = content.querySelectorAll('button');
             console.log(buttons__edit);
             
@@ -44,12 +50,10 @@ function fetchIndexHTML() {
         .catch((error) => {
             console.error("Error:", error);
         });
-
 }
 
 function fetchEditMode1() {
-    //skift content
-    // fetch html fil -> her får vi en string
+    // fetch html fil -> her får vi en string tilbage
     fetch('html/editMode-1.html')
     .then((response) => {
         // if (!response.ok) {
@@ -59,12 +63,15 @@ function fetchEditMode1() {
     })
     .then((htmlString) => {
         console.log(htmlString);
-        //create html out of string
+        // lave htmlstring om til html kode
         const newHTML = document.createRange().createContextualFragment(htmlString);
+        //slet det nuværende indhold og erstat det med det nye
         content.innerHTML = "";
         content.appendChild(newHTML);
 
         // få fat i buttons på editMode-1 siden 
+        // skal være herinde, fordi den ellers allerede søger efter knapperne, 
+            // når siden ikke endnu er loadet.
         const button__back = document.querySelector('.button__back');
         button__back.addEventListener('click', goPageBack)
     
@@ -113,7 +120,6 @@ function fetchEditMode2() {
 
 // edit --> editMode-1
 function openEditModes() {
-    
     // opret modesTabs
     const modesTabs = document.createElement('nav');
     modesTabs.classList.add('modesTabs')
@@ -196,7 +202,7 @@ function goPageForth() {
 
     // editMode1 --> editMode2
     if(content.classList.contains('content--rooms')) {
-        //tilpas tabs
+        //tilpas tabs, så der kun vises den aktive tab pa edit page 2
         modesTabs.classList.add('modesTabs--single')
         //få at vide hvilken tab er aktiv
         const activePosition = getComputedStyle(document.documentElement).getPropertyValue('--tab__active--left');
@@ -246,7 +252,8 @@ function goPageForth() {
  * - hvilken keyframes animation har vi så brug for?
  */
 
-//eventlisteners til hvert enkelt tab er allerede oprettet samtidig med selve elementet
+//eventlisteners til hvert enkelt tab blev allerede oprettet samtidig med 
+    //selve elementet på openEditMode1()
 function changeTab(tab) {
     // finde ud af, på hvilken tab brugeren har trykket
     const target = tab.target;
@@ -276,7 +283,7 @@ function changeTab(tab) {
 }
 
 function changeToAsleep(activePosition) {
-    // få fat i baggrundskassen og finde ud af, hvor den er lige nu 
+    // få fat i baggrundskassen, så den kan få en ny class
     const activeTab = document.querySelector('.modesTabs__active');
     // atHome --> asleep
     if (activePosition == "0"){
